@@ -1,6 +1,12 @@
 # Starting file for Lab 1 - Chapter 12 - book_catalog.py program
-# Include your name, date, and class in the assignment comments (replace this line)
-
+# natan quirino 10/14/2026 dev128
+def list_books(book_catalog):
+    for book in book_catalog:
+        print()
+        print("Title: ", book)
+        print("Author: ", book_catalog[book]["author"])
+        print("Pub Year ", book_catalog[book]["pubyear"])
+        
 def show_book(book_catalog):
     title = input("Title: ")
     if title in book_catalog:
@@ -44,6 +50,7 @@ def display_menu():
     print("The Book Catalog program")
     print()
     print("COMMAND MENU")
+    print("list - Lists books in current catalog")
     print("show - Show book info")
     print("add -  Add book")
     print("edit - Edit book")
@@ -66,7 +73,9 @@ def main():
     while True:
         print()
         command = input("Command: ").lower()
-        if command == "show":
+        if command == "list":
+            list_books(book_catalog)
+        elif command == "show":
             show_book(book_catalog)
         elif command == "add":
             add_edit_book(book_catalog, mode="add")
