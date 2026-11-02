@@ -1,7 +1,9 @@
 # Starting file for Lab 3 - product_viewer.py
 # Include your name, class, and date in the assignment comment header
-
-from objects import Product, Book, Movie
+# Natan Quirino Gonzalez
+# 11/1/2026
+# Dev 128
+from objects import Product, Media, Book, Movie, Album
 
 def show_products(products):
     print("PRODUCTS")
@@ -15,8 +17,15 @@ def show_product(product):
     print(f"{'Name:':{w}}{product.name}")
     if isinstance(product, Book):
         print(f"{'Author:':{w}}{product.author}")
+        
     if isinstance(product, Movie):
         print(f"{'Year:':{w}}{product.year}")
+        
+    if isinstance(product, Album):
+        print(f"{'Author:':{w}}{product.artist}")
+        
+    if isinstance(product, Media):
+        print(f"{'Format:':{w}}{product.format}")
     print(f"{'Discount price:':{w}}{product.getDiscountPrice():.2f}")
     print()
 
@@ -25,8 +34,10 @@ def main():
     print()
     
     products = (Product("Stanley 13 Ounce Wood Hammer", 12.99, 62),
-                Book("The Big Short", 15.95, 34, "Michael Lewis"),
-                Movie("The Holy Grail - DVD", 14.99, 68, 1975))
+                Book("The Big Short", 15.95, 34, "Paperback", "Michael Lewis"),
+                Movie("The Holy Grail - DVD", 14.99, 68, "DVD", 1975 ),
+                Album("Rubber Soul", 10.00, 0, "CD", "The Beatles" ),
+                Movie("Nacho Libre - DVD", 10.99, 70, "DVD", 2006 ))
     show_products(products)
 
     choice = "y"
